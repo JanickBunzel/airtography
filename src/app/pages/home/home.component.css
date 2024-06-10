@@ -1,0 +1,205 @@
+/* #region Banner */
+.banner{
+	width: 100%;
+	aspect-ratio: 3/1;
+	background-image: url("src/assets/img/Volcano3Small.jpg");
+	background-size: cover;
+	background-position: center 24%;
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-image .2s ease;
+}
+
+.banner h1{
+	color: white;
+	font-size: 1.625rem;
+	font-weight: 400;
+	margin: 0 0 80px 0;
+	text-shadow: 0px 1px 4px rgba(70, 70, 70, 0.5);
+}
+/* #endregion Banner */
+
+/* #region Intro */
+.intro{
+	text-align: center;
+	background-color: var(--sectionBackgroundColorGray);
+	padding-top: 115px;
+	padding-bottom: 145px;
+}
+.intro h2{
+	margin-top: 0;
+}
+.intro .neighbours{
+	padding: 0 40px;
+}
+.intro p{
+	text-align: left;
+}
+/* #endregion Intro */
+
+/* #region Leistungen */
+.leistungen{
+	text-align: center;
+	padding-bottom: 100px;
+}
+.leistungen h2{
+	margin-top: 100px;
+}
+.leistungen h4{
+	margin-bottom: 50px;
+}
+.leistungen-button{
+	margin: 100px 0;
+}
+
+.gallery{
+	max-width: var(--contentWidth);
+	margin: 0 auto;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 1.2rem;
+}
+.gallery-item{
+	aspect-ratio: 16/9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.gallery-item img{
+	max-width: 100%;
+	max-height: 100%;
+	transition: all .15s ease;
+}
+.gallery-item:hover img{
+	transform: scale(1.04);
+}
+.gallery-load-more-button{
+	display: none;
+}
+/* #endregion Leistungen*/
+
+/* #region Über preview */
+.aboutPreview{
+	background-color: var(--sectionBackgroundColorGray);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-top: 100px;
+	padding-bottom: 110px;
+	text-align: center;
+}
+.quote{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 30px;
+}
+.quote-text{
+	width: 50%;
+	margin-bottom: 60px;
+}
+.quote-text h2{
+	margin: 0;
+}
+.quote-text h4{
+	margin-top: 10px;
+	margin-bottom: 60px;
+}
+.quote-text p{
+	margin: 0;
+	text-align: left;
+}
+
+.quote-profile{
+	width: 35%;
+	display: flex;
+	flex-direction: column;
+}
+.quote-profile-picture{
+	aspect-ratio: 1/1;
+	background-image: url("src/assets/img/ProfilePictureJanick.jpg");
+	background-size: 160%;
+	clip-path: circle();
+	background-position: 42% 55%;
+	width: 90%;
+	margin: 0 auto;
+	pointer-events: none;
+}
+.quote-profile-name{
+	font-weight: 600;
+	color: rgb(51, 51, 51);
+	margin: 24px 0 8px 0;
+	text-align: center;
+}
+.quote-profile-description{
+	font-size: 1rem;
+	font-style: italic;
+	color: rgb(51, 51, 51);
+	margin: 0 0 8px 0;
+	text-align: center;
+}
+/* #endregion Über preview */
+
+@media (max-width: 767px) {
+	/* #region Banner */
+	.banner{
+		height: 750px;
+		background-position: center top;
+		background-size: 1543px;
+	}
+
+	.banner h1{
+		text-align: center;
+		margin-bottom: 100px;
+	}
+	/* #endregion Banner */
+	
+	/* #endregion Banner */
+	.intro{
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+	/* #endregion Banner */
+
+	/* #region Leistungen */
+	.leistungen{
+		text-align: center;
+		padding-bottom: 0;
+	}
+	.gallery{
+		grid-template-columns: 1fr;
+		margin-bottom: 1.2rem;
+	}
+	.gallery-load-more-button{
+		display: inline-block;
+		margin: 1rem auto 2.2rem auto;
+	}
+	/* #endregion Leistungen */
+
+	/* #region Über preview */
+	.aboutPreview{
+		padding-bottom: 90px;
+	}
+	.quote{
+		flex-direction: column;
+		margin-bottom: 70px;
+	}
+	.quote-text{
+		width: 95%;
+	}
+	.quote-profile{
+		width: 100%;
+	}
+	.quote-text h4{
+		margin-top: 10px;
+		margin-bottom: 40px;
+	}
+	.quote-profile-picture{
+		width: 75%;
+	}
+	/* #endregion Über preview */
+}

@@ -1,0 +1,47 @@
+<section #auftragFormSection>
+	<div class="content-width">
+		<h2>Auftrag anfragen</h2>
+		<p>Teilen Sie uns Ihre Vorstellungen mit und lassen Sie uns <br> Ihren individuellen Auftrag in die Tat umsetzen.</p>
+		<button *ngIf="!showForm" class="button-dark" (click)="ShowAuftragForm()">Angebot erhalten</button>
+		
+		<form *ngIf="showForm" #auftragForm="ngForm">
+			<div class="field">
+				<label>Name</label>
+				<input type="text" ngModel required name="name" #nameInput="ngModel" autocomplete="off" spellcheck="false">
+				<label class="label-error" *ngIf="nameInput.invalid && nameInput.touched">Der Name ist erforderlich</label>
+			</div>
+			<div class="field">
+				<label>Email</label>
+				<input type="text" ngModel required name="email" #emailInput="ngModel" autocomplete="off" spellcheck="false">
+				<label class="label-error" *ngIf="emailInput.invalid && emailInput.touched">Die Email ist erforderlich</label>
+			</div>
+			<div class="field-double">
+				<div class="field">
+					<label>Telefonnummer (optional)</label>
+					<input type="tel" ngModel name="phone" autocomplete="off" spellcheck="false">
+				</div>
+				<div class="field">
+					<label>Firma (optional)</label>
+					<input type="text" ngModel name="firma" autocomplete="off" spellcheck="false">
+				</div>
+			</div>
+			<div class="field">
+				<label>Auftragsbeschreibung</label>
+				<textarea type="text" ngModel required name="message" #messageInput="ngModel" autocomplete="off" spellcheck="false"></textarea>
+				<label class="label-error" *ngIf="messageInput.invalid && messageInput.touched">Die Auftragsbeschreibung ist erforderlich</label>
+			</div>
+			<!-- <div class="field">
+				<div class="field-checkbox">
+					<input type="checkbox" ngModel required name="dataconsent" #dataconsentInput #dataconsentInputNgModel="ngModel">
+					<label>Ich stimme der Verarbeitung meiner Daten gemäß der <a routerLink="/impressum">Datenschutzerklärung</a> zu.</label>
+				</div>
+				<label class="label-error" *ngIf="dataconsentInputNgModel.dirty && !dataconsentInput.checked">Die Zustimmung ist erforderlich</label>
+			</div> -->
+			<button class="button-dark" (click)="AuftragFormSubmit(auftragForm)" aria-label="Auftraganfrage abschicken">Senden</button>
+			<div #feedbackElement class="form-feedback">
+				{{feedbackText}}
+				<a #feebackIncompleteLink style="display: none;" href="mailto:info@airtography.de">info&#64;airtography.de</a>
+			</div>
+		</form>
+	</div>
+</section>

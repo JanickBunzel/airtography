@@ -1,0 +1,22 @@
+<section class="loginPage">
+	<div class="content-width">
+		<h1>Kundenlogin</h1>
+		<p>Für Kooperationen und langfristige Zusammenarbeit steht unser Kundenservice zur Verfügung</p>
+		<form #loginForm="ngForm">
+			<div class="field">
+				<label>Email/Username</label>
+				<input type="text" ngModel required name="username" #usernameInput="ngModel" autocomplete="off" spellcheck="false">
+				<label class="label-error" *ngIf="usernameInput.invalid && usernameInput.touched">Die Email oder der Username ist erforderlich</label>
+			</div>
+			<div class="field">
+				<label>Passwort</label>
+				<input type="password" ngModel required name="password" #passwordInput="ngModel" autocomplete="off" spellcheck="false">
+				<label class="label-error" *ngIf="passwordInput.invalid && passwordInput.touched">Das Passwort ist erforderlich</label>
+			</div>
+			<button class="button-dark" (click)="LoginFormSubmit(loginForm)" aria-label="Kundenlogin abschicken">Login</button>
+			<div #feedbackElement class="form-feedback form-feedback-error">
+				Die Eingabe ist ungültig. Bitte prüfen Sie sowohl das Passwort als auch die Email/den Usernamen.
+			</div>
+		</form>
+	</div>
+</section>

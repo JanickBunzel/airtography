@@ -1,0 +1,12 @@
+.stylesheet{
+	padding: 100px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	background-color: rgb(247, 247, 247);
+	margin-bottom: calc((100vw - var(--contentWidth))*0.5);
+}
+
+.spacer{
+	height: 15px;
+}

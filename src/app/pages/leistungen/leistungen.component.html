@@ -1,0 +1,91 @@
+<!-- EINLEITUNG TEXT -->
+<section class="intro">
+	<div class="content-width">
+		<h1>Leistungen</h1>
+		<h4>Besprechung, Ablauf und Nachbearbeitung</h4>
+		<div class="icons-with-text">
+			<div>
+				<fa-icon [icon]="faToolbox" size="4x"></fa-icon>
+				<h6>Technologie</h6>
+				<p>Unsere hochmoderne Ausrüstung ermöglicht uns, gestochen scharfe Bilder und Videos von höchster Qualität zu liefern</p>
+			</div>
+			<div>
+				<fa-icon [icon]="faWrench" size="4x"></fa-icon>
+				<h6>Post Processing</h6>
+				<p>Eine professionelle Nachbearbeitung bringt die Aufnahmen auf das nächste Level</p>
+			</div>
+			<div>
+				<fa-icon [icon]="faCertificate" size="4x"></fa-icon>
+				<h6>Expertise</h6>
+				<p>Unsere ausgebildeten Piloten und Editoren bieten wir Ihnen einen zuverlässigen Partner</p>
+			</div>
+			<div>
+				<fa-icon [icon]="faHandshake" size="4x"></fa-icon>
+				<h6>Zuverlässigkeit</h6>
+				<p>Wir liefern Pünktlich und passen uns auf Ihre Wünsche an. Ihr Projekt, Ihre Vision und damit Ihre Zufriedenheit liegen uns am Herzen</p>
+			</div>
+		</div>
+		<p class="intro-ablauf-text">
+			Um einen <strong>Auftrag zu verwirklichen</strong>, kommen wir zu Ihnen vor Ort und erfassen die Aufnahmen aus der Luft. Dabei können Sie den Vorgang begleiten und haben so die Möglichkeit, ihre Wünsche bestmöglichst anzugeben, sodass wir den Auftrag maßgeschneidert umsetzen können.
+			<br> <br> Nachdem wir alle erforderlichen Aufnahmen gemacht haben, gehen wir an die Arbeit, die Aufnahmen <strong>professionell nachzubearbeiten</strong>. Dabei geht es um die Qualität und Ästhetik der Bilder und Videos, die auf Ihren Auftrag zugeschnitten sind. Dazu gehören zum Beispiel das <i>color-grading</i> für den richtigen Look oder <i>sound-design</i> in Videos.
+			<br> Sobald die Bearbeitung abgeschlossen ist, senden wir Ihnen die finalen Aufnahmen zu. Dabei können Sie aus verschiedenen Formaten wählen, die Ihren Anforderungen am besten entsprechen. Wir stellen sicher, dass Sie die fertigen Aufnahmen zeitnah erhalten, damit Sie diese für Ihre Projekte oder Präsentationen nutzen können.
+			<br> <br> <strong>Unser Ziel</strong> ist es, den gesamten Prozess so reibungslos wie möglich zu gestalten und Ihnen exzellenten Service zu bieten. Von der Aufnahme bis zur Bearbeitung legen wir großen Wert auf Ihre Zufriedenheit und arbeiten hart daran, dass Sie beeindruckende Ergebnisse erhalten, die Ihre Erwartungen übertreffen.
+		</p>
+		<button 
+			class="button-mediumdark"
+			(click)="
+				auftraganfragen.scrollAuftragAnfragnIntoView();
+				auftraganfragen.ShowAuftragForm();
+			"
+		>Auftrag anfragen</button>
+		<div class="tools">
+			<h2>Tools</h2>
+			<h4>Mit diesen Programmen sind wir vertraut und bearbeiten das Material</h4>
+			<div class="tools-container">
+				<a href="https://affinity.serif.com/en-us/publisher/" target="_blank"><img src="../../../assets/img/Icons/AffinityPublisher2Logo.png" alt="Affinity Publisher 2 Logo"></a>
+				<a href="https://affinity.serif.com/en-us/photo/" target="_blank"><img src="../../../assets/img/Icons/AffinityPhoto2Logo.png" alt="Affinity Photo 2 Logo"></a>
+				<a href="https://www.apple.com/final-cut-pro/" target="_blank"><img src="../../../assets/img/Icons/FinalCutProLogo.png" alt="Final Cut Pro Logo "></a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Immobilie Beispiel -->
+<section class="fullscreen-hero hero-realEstateExample" #realEstateExample preventContextMenu title="Drohnenaufnahme einer Immobilie in Hamburg - © Airtography">
+	<p class="asset-disclaimer" #VideoCopyright>Drohnenaufnahme einer Immobilie in Hamburg - © Airtography</p>
+</section>
+
+<!-- AUFTRÄGE BEISPIELE -->
+<section class="aufträge">
+	<div class="content-width">
+		<h2>Aufträge</h2>
+		<h4>
+			Immobilien, Natur, Industrie & Gewerbe, Events, Inspektionen, oder ganz <i>individuell</i> -
+			<br>Wir gehen gerne auf Ihre Wünsche ein!
+		</h4>
+		<div class="show">
+			<div class="show-item" *ngFor="let item of showItems" [ngClass]="{'show-item-reverse' : item.reverse }">
+				<div class="show-text">
+					<h6>{{ item.title }}</h6>
+					<p>{{ item.description }}</p>
+				</div>
+				<div class="show-image">
+					<img [src]="item.imageSrc" [alt]="item.imageAlt" loading="lazy">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- FULLWIDTH VIDEO -->
+<section class="showreel">
+	<div class="content-width">
+		<h2>Leistungen</h2>
+		<h4>Kleine Einblicke in einige unserer Aufträge</h4>
+		<airtography-showreel></airtography-showreel>
+	</div>
+</section>
+
+<!-- Auftrag anfragen -->
+<div id="scrollToAuftragAnfragen"></div>
+<auftraganfragen #auftraganfragen></auftraganfragen>

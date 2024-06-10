@@ -1,0 +1,67 @@
+<!-- Thumbnail -->
+<section class="banner" title="Mt. Ngauruhoe - © Airtography" #banner preventContextMenu>
+	<h1 class="content-width">Professionelle Drohnen Foto- & Videografie</h1>
+</section>
+
+<!-- Einleitung Text -->
+<section class="intro">
+	<div class="content-width">
+		<h2>Aus der Luft</h2>
+		<h4>Atemberaubend - Ob Landschaft, Gebäude oder Objekte in Bewegung</h4>
+		<div class="neighbours">
+			<p>
+				Wir bei Airtography bieten Ihnen ganz neue Perspektiven. Mit unseren modernen Drohnen und erfahrenen Piloten setzen wir unsere Expertise ein, um Ihre Visionen umzusetzen.
+				<br><br>
+				Mit einer Auflösung von bis zu 4k bei 120fps, Flughöhe bis zu 120m (EU-Gesetz) und professioneller Nachbearbeitung können Wir Ihnen ein hervorragendes Ergebnis garantieren.
+			</p>
+			<p>
+				Fotografie im urbanen Umfeld, Dokumentation von Bauprojekten oder ein Imagefilm - Wir verwirklichen Ihre Wünsche
+				<br><br><br>
+				Machen Sie sich keine Sorgen um Anträge oder Genehmigungen - Das übernehmen wir natürlich und sind in Kontakt mit den zuständigen Behörden.
+			</p>
+		</div>
+	</div>
+</section>
+
+<!-- Leistungen -->
+<section class="leistungen">
+	<div class="content-width">
+		<h2>Leistungen</h2>
+		<h4>Kleine Einblicke in einige unserer Aufträge</h4>
+		<airtography-showreel></airtography-showreel>
+		<a class="button-light leistungen-button" routerLink="/leistungen">Zu den Leistungen</a>
+		<div class="gallery">
+			<div class="gallery-item" *ngFor="let img of visibleGalleryImages">
+				<img [src]="img.src" [alt]="img.alt" loading="lazy" draggable="false">
+			</div>
+		</div>
+		<button class="button-ultralight gallery-load-more-button" (click)="GalleryLoadMore()" #galleryLoadMoreButton>Mehr anzeigen</button>
+	</div>
+</section>
+
+<!-- Über -->
+<section class="aboutPreview">
+	<div class="content-width">
+		<div class="quote">
+			<div class="quote-text">
+				<h2>Über</h2>
+				<h4>Das ist Airtography</h4>
+				<p>
+					<strong>"</strong>Mit meiner Leidenschaft für Drohnenfoto- und Videografie habe ich es mir zur Aufgabe gemacht, einzigartige Perspektiven aus der Luft einzufangen und unvergessliche Momente für unsere Kunden zu schaffen.
+					<br>Wir freuen uns darauf, Ihre Visionen zu verwirklichen und Ihnen beeindruckende Ergebnisse zu liefern. Lassen Sie uns gemeinsam die Welt aus einer neuen Dimension entdecken!"
+					<br>
+					<br>Mit dem großen EU-Drohnenführerschein, Kompetenznachweis A1/A2/A3 und vielen Flugstunden seit 2014 ist Janick Bunzel der Leitende Pilot von Airtography.
+				</p>
+			</div>
+			<div class="quote-profile">
+				<div class="quote-profile-picture" title="Profilbild Drohnenpilot Janick Bunzel" preventContextMenu></div>
+				<p class="quote-profile-name">Janick Bunzel</p>
+				<p class="quote-profile-description">Zertifizierter Drohnenpilot & Editor</p>
+			</div>
+		</div>
+	</div>
+	<a class="button-mediumdark" routerLink="/kontakt">Kontakt</a>
+</section>
+
+<!-- Auftrag anfragen -->
+<auftraganfragen></auftraganfragen>

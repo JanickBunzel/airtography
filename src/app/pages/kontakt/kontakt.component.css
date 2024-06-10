@@ -1,0 +1,37 @@
+.intro{
+	text-align: center;
+	background-color: var(--sectionBackgroundColorGray);
+	padding-top: 60px;
+	padding-bottom: 100px;
+}
+.intro h4{
+	margin-bottom: 40px;
+}
+
+.intro a{
+	color: #707173;
+	text-decoration: underline;
+	word-wrap: break-word;
+}
+.intro a:hover{
+	color: rgb(60, 61, 63);
+}
+
+.kontaktanfrage{
+	margin-top: 50px;
+	display: flex;
+	justify-content: center;
+}
+
+iframe{
+	width: 100%;
+	aspect-ratio: 3/1;
+	border: 0;
+	display: block;
+}
+
+@media (max-width: 767px) {
+	iframe{
+		aspect-ratio: 2/1;
+	}
+}

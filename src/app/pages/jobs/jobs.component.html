@@ -1,0 +1,21 @@
+<section class="jobs">
+	<div class="content-width">
+		<h1>Jobs</h1>
+		<h4>Offene Stellen bei Airtography</h4>
+		<div class="jobslist">
+			<div class="job" *ngFor="let job of jobs">
+				<h5>{{ job.title }}</h5>
+				<p class="job-description">{{ job.description }}</p>
+				<h6>Vorraussetzungen</h6>
+				<p>{{ job.qualifications }}</p>
+				<h6>Von Vorteil</h6>
+				<p>{{ job.bonus }}</p>
+				<h6>Location</h6>
+				<p>{{ job.location }}</p>
+				<h6>Bewerbung</h6>
+				<p>{{ job.application }}</p>
+				<a class="button-dark" href="mailto:jobs@airtography.de?subject=Bewerbung zum {{job.title}}">Jetzt bewerben</a>
+			</div>
+		</div>
+	</div>
+</section>

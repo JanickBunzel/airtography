@@ -1,0 +1,167 @@
+/* #region Intro */
+.intro{
+	text-align: center;
+	background-color: var(--sectionBackgroundColorGray);
+	padding-top: 60px;
+	padding-bottom: 140px;
+}
+.intro h4{
+	margin-bottom: 40px;
+}
+.intro button{
+	margin-top: 60px;
+}
+
+.tools{
+	margin-top: 120px;
+	margin-bottom: 20px;
+}
+.tools-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 80px auto 0 auto;
+	gap: 80px;
+}
+.tools-container *{
+	height: 5rem;
+	transition: all .2s ease;
+	filter: drop-shadow(5px 5px 5px #c0c0c0);
+}
+.tools-container *:hover{
+	transform: scale(1.04);
+	cursor: pointer;
+	filter: drop-shadow(8px 8px 8px #cecece);
+}
+/* #endregion Intro */
+
+/* #region AUFTRÄGE Show */
+.aufträge{
+	background-color: var(--sectionBackgroundColorLightGray);
+	padding-top: 60px;
+	padding-bottom: 120px;
+}
+.aufträge h2{
+	text-align: center;
+}
+.aufträge h4{
+	text-align: center;
+}
+
+.show{
+	margin-top: 80px;
+	display: flex;
+	flex-direction: column;
+	gap: 120px;
+}
+
+.show-item{
+	display: flex;
+}
+
+.show-text{
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: left;
+	padding-left: 0;
+	padding-right: 50px;
+}
+.show-text h6{
+	font-size: 1.6rem;
+}
+.show-image{
+	width: 60%;
+	aspect-ratio: 16/9;
+	overflow: hidden;
+	box-shadow: 6px 8px 25px #8e8e8e;
+	transition: all .15s ease;
+}
+.show-image img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: all .15s ease;
+	will-change: transform;
+	pointer-events: none;
+}
+.show-image:hover{
+	box-shadow: 6px 8px 28px #7a7a7a;
+}
+.show-image:hover > img{
+	transform: scale(1.015);
+}
+
+.show-item-reverse{
+	flex-direction: row-reverse;
+}
+.show-item-reverse .show-text{
+	padding-left: 50px;
+	padding-right: 0;
+	text-align: right;
+}
+/* #endregion AUFTRÄGE Show */
+
+/* #region SHOWREEL */
+.showreel{
+	background-color: var(--sectionBackgroundColorGray);
+	padding: 80px 0;
+	text-align: center;
+}
+.showreel h2{
+	margin-top: 0;
+}
+.showreel h4{
+	margin-bottom: 50px;
+}
+/* #endregion SHOWREEL */
+
+.hero-realEstateExample{
+	background-image: url(../../../assets/img/RealEstateHamburgSmall.jpg);
+    background-position-y: 16%;
+}
+
+@media (max-width: 767px) {
+	.intro-ablauf-text{
+		width: 95%;
+		margin: 0 auto;
+	}
+
+	.tools{
+		margin-top: 100px;
+	}
+	.tools-container{
+		justify-content: space-around;
+		gap: initial;
+		width: 95%;
+	}
+	.tools-container *{
+		height: 4rem;
+	}
+
+	.example{
+		aspect-ratio: 16/9;
+		background-position: top;
+	}
+	.example .asset-disclaimer{
+		font-size: 0.7rem;
+	}
+	.show{
+		align-items: center;
+		gap: 50px;
+	}
+	.show-item{
+		flex-direction: column;
+		width: 90%;
+	}
+	.show-item .show-text, .show-item-reverse .show-text{
+		width: 100%;
+		padding: 0;
+		text-align: left;
+	}
+	.show-image{
+		width: 100%;
+		margin-top: 1rem;
+	}
+}
