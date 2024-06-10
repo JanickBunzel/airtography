@@ -1,0 +1,22 @@
+.DS_Store
+
+# node_modules
+/node_modules/
+
+# Build output
+/dist/
+/build/
+
+# Cache created with the Angular CLI.
+.angular/
+
+# Personal VSCode config
+.vscode/
+
+# npm debug
+npm-debug.log
+
+# environment files
+.env
+
+.vercel

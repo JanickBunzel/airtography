@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "airtography-2b7f0": {
+      "hosting": {
+        "airtography": [
+          "airtography-2b7f0"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "airtography-2b7f0"
+  }
+}

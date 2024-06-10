@@ -1,0 +1,26 @@
+<header>
+	<section class="content-width header-inner">
+		<div class="header-logo">
+			<a routerLink="/">Airtography</a>
+		</div>
+		<a class="header-menuIcon" (click)="ToggleMobileMenu()">
+			<fa-icon [icon]="faMenuIcon" size="4x"></fa-icon>
+		</a>
+		<div class="header-menu">
+			<a routerLink="/">Home</a>
+			<a routerLink="/leistungen">Leistungen</a>
+			<a routerLink="/kontakt">Kontakt</a>
+			<a routerLink="/jobs">Jobs</a>
+			<a routerLink="/login">Login</a>
+			<a href="tel:{{phoneNumber}}" class="header-iconLink" aria-label="Airtography anrufen"><fa-icon [icon]="faPhone" size="4x"></fa-icon></a>
+			<a href="mailto:info@airtography.de" class="header-iconLink" aria-label="Email an Airtography schreiben"><fa-icon [icon]="faMail" size="4x"></fa-icon></a>
+		</div>
+	</section>
+	<div class="header-menu-mobile">
+		<a (click)="ToggleMobileMenu(); RouteToPage('/')">Home</a>
+		<a (click)="ToggleMobileMenu(); RouteToPage('/leistungen')">Leistungen</a>
+		<a (click)="ToggleMobileMenu(); RouteToPage('/kontakt')">Kontakt</a>
+		<a (click)="ToggleMobileMenu(); RouteToPage('/jobs')">Jobs</a>
+		<a (click)="ToggleMobileMenu(); RouteToPage('/login')">Login</a>
+	</div>
+</header>

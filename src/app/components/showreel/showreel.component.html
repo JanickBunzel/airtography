@@ -1,0 +1,32 @@
+<div class="video-container"
+	(mouseenter)="ShowVideoOverlay()"
+	(mousemove)="StartVideoOverlayTimer(); ShowVideoOverlay()"
+	(mouseleave)="CancelVideoOverlayTimer(); HideVideoOverlay()"
+	>
+	<video
+		#Showreel
+		loop
+		muted
+		poster="../../../assets/video/ShowreelThumbnail.jpg"
+		preload="metadata"
+		[disablePictureInPicture]="true"
+		(loadstart)="ShowreelStats('loadstart')"
+		(loadeddata)="ShowreelStats('loadeddata')"
+		(loadedmetadata)="ShowreelStats('loadedmetadata')"
+	>
+		<source src="../../../assets/video/Lenggries.mp4" type="video/mp4">
+		Your browser does not support HTML5 video.
+		<meta itemprop="name" content="Airtography Showreel">
+		<meta itemprop="description" content="Ein Video mit Clips aus Aufträgen von Airtography, verschiedene Drohnenaufnahmen weltweit">
+	</video>
+	<div class="video-overlay" (click)="VideoOverlayClicked()">
+		<button (click)="VideoRestart()" #VideoOverlayButtonReplay class="video-overlay-button-replay" aria-label="Beispielvideo neustarten">
+			<fa-icon [icon]="faReplay" size="4x"></fa-icon>
+		</button>
+		<button (click)="VideoPausePlayButton()" #VideoOverlayButtonPausePlay class="video-overlay-button-pauseplay" aria-label="Beispielvideo abspielen">
+			<fa-icon [icon]="faPlayPause" size="4x"></fa-icon>
+		</button>
+	</div>
+	<p class="asset-disclaimer" #VideoCopyright>Various Projects - © Airtography</p>
+</div>
+<iframe class="youtube-iframe" *ngIf="isMobile" src="https://www.youtube.com/embed/THU6mK_W364?modestbranding=1&autoplay=1&loop=1&rel=0" title="Airtography Showreel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
