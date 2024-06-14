@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { NgForm } from '@angular/forms';
 import { formatDate } from '@angular/common';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-kontakt',
@@ -24,8 +24,8 @@ export class KontaktComponent {
 	phoneNumberSpaces = process.env['PHONENUMBER_SPACES'] || 'Blurred';
 
 	constructor(
-		private firestore: AngularFirestore,
-	){}
+		private firestoreService: FirestoreService,
+	) {}
 
 	ShowKontaktForm(){
 		this.showForm = true;
@@ -47,18 +47,16 @@ export class KontaktComponent {
 		// Create Collection Document name with timestamp
 		const docName = "KontaktAnfrage_" + formatDate(new Date(), "YYYYMMdd_HHmmss", "de-CH");
 
-		// Store data to Firebase
-		console.log("Submitting... " + docName);
-		this.firestore.collection("KontaktAnfragen").doc(docName).set(form.value)
-			.then(() => {
-				form.reset();
-				this.SetFeedback("success");
-				console.log("Submit successful.");
-			})
-			.catch((error) => {
-				this.SetFeedback("error");
-				console.log("Error on submit: ", error);
-			});
+		// Submit to Firebase
+		this.firestoreService.SubmitForm("KontaktAnfragen", docName, form)
+            .then((success) => {
+                if(success){
+                    form.reset();
+                    this.SetFeedback("success");
+                } else {
+                    this.SetFeedback("error");
+                }
+            });
 	}
 
 	// Set feedback block below form
