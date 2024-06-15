@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { getAuth, signInAnonymously, onAuthStateChanged } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -26,20 +27,22 @@ export class FirestoreService {
             return false;
         }
 
-        console.log("[FirestoreService]: Submitting... " + doc);
-
         // If not production, choose dev collection
         if (!environment.production) {
             collection = "dev_" + collection;
         }
 
-        // Add timestamp and userId
+        // Add further details
+		const docName = doc + "_" + formatDate(new Date(), "YYYYMMdd_HHmmss", "de-DE");
         form.value.timestamp = new Date();
-        form.value.userId = this.userId;
+        form.value.FIREBASE_userId = this.userId;
+        form.value.FIREBASE_passcode = process.env['FIREBASE_passcode'] || 'Not loaded from env';
+        console.log("Form data: ", form.value);
 
         // Submit to Firestore
+        console.log("[FirestoreService]: Submitting... " + docName);
         try {
-            await this.firestore.collection(collection).doc(doc).set(form.value);
+            await this.firestore.collection(collection).doc(docName).set(form.value);
             console.log("[FirestoreService]: Submit successful.");
             return true;
         } catch (error) {

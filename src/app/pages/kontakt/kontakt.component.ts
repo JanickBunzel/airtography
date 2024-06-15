@@ -1,6 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { formatDate } from '@angular/common';
 import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
@@ -44,11 +43,8 @@ export class KontaktComponent {
 			return;
 		}
 
-		// Create Collection Document name with timestamp
-		const docName = "KontaktAnfrage_" + formatDate(new Date(), "YYYYMMdd_HHmmss", "de-CH");
-
 		// Submit to Firebase
-		this.firestoreService.SubmitForm("KontaktAnfragen", docName, form)
+		this.firestoreService.SubmitForm("KontaktAnfragen", "KontaktAnfrage", form)
             .then((success) => {
                 if(success){
                     form.reset();
