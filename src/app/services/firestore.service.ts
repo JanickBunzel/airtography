@@ -37,7 +37,6 @@ export class FirestoreService {
         form.value.timestamp = new Date();
         form.value.FIREBASE_userId = this.userId;
         form.value.FIREBASE_passcode = process.env['FIREBASE_passcode'] || 'Not loaded from env';
-        console.log("Form data: ", form.value);
 
         // Submit to Firestore
         console.log("[FirestoreService]: Submitting... " + docName);
@@ -52,28 +51,19 @@ export class FirestoreService {
     }
 
     private SignInAnonymously() {
-        console.log("Signing in anonymously...");
+        console.log("[FirestoreService]: Signing in anonymously...");
 
         const auth = getAuth();
         signInAnonymously(auth)
-            .then(() => {
-                if (auth.currentUser) {
-                    console.log("User signed in: " + auth.currentUser.uid);
-                    this.userId = auth.currentUser.uid;
-                } else {
-                    console.log("User not signed in.");
-                    this.userId = "";
-                }
-            })
             .catch((error) => {
-                console.error("Error signing in: ", error);
+                console.error("[FirestoreService]: Error signing in: ", error);
             });
         
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                console.log("Sign in updated: " + user.uid);
+                console.log("[FirestoreService]: Sign in updated: " + user.uid);
             } else {
-                console.log("Signed out");
+                console.log("[FirestoreService]: Signed out");
             }
         });
     }
