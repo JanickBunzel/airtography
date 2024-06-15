@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { faEllipsisVertical, faXmark, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { DeviceService } from 'src/app/device.service';
 import { Router } from '@angular/router';
+import { env } from 'process';
+import { environment } from 'src/environments/environment';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-header',
@@ -26,7 +29,8 @@ export class HeaderComponent implements OnInit{
 	
 	constructor(
 		private deviceService: DeviceService,
-		private router: Router
+		private router: Router,
+        private firestoreService: FirestoreService,
 	){}
 	
 	ngOnInit(){
