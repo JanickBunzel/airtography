@@ -1,7 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { NgForm } from '@angular/forms';
-import { formatDate } from '@angular/common';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'auftraganfragen',
@@ -21,8 +20,8 @@ export class AuftraganfragenComponent {
 	feedbackText = this.feedbackTextSuccess;
 
 	constructor(
-		private firestore: AngularFirestore,
-	){}
+		private firestoreService: FirestoreService,
+	) {}
 
 	ShowAuftragForm(){
 		this.showForm = true;
@@ -41,21 +40,16 @@ export class AuftraganfragenComponent {
 			return;
 		}
 
-		// Create Collection Document name with timestamp
-		const docName = "Auftrag_" + formatDate(new Date(), "YYYYMMdd_HHmmss", "de-DE");
-
-		// Store data to Firebase
-		console.log("Submitting... " + docName);
-		this.firestore.collection("AuftragAnfragen").doc(docName).set(form.value)
-			.then(() => {
-				form.reset();
-				this.SetFeedback("success");
-				console.log("Submit successful.");
-			})
-			.catch((error) => {
-				this.SetFeedback("error");
-				console.log("Error on submit: ", error);
-			});
+		// Submit to Firebase
+        this.firestoreService.SubmitForm("AuftragAnfragen", "Auftrag", form)
+            .then((success) => {
+                if(success){
+                    form.reset();
+                    this.SetFeedback("success");
+                } else {
+                    this.SetFeedback("error");
+                }
+            });
 	}
 
 	// Set feedback block below form
