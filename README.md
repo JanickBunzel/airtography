@@ -1,5 +1,21 @@
 # Airtography
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
+[https://airtography.de/](https://airtography.de/)
 
-ReadMe Placeholder - Janick
+For my Drone Photography & Videography I created this website in 2023 as a side project
+
+The main goal is to build, and experience software development
+
+#### Tech:
+- Angular Routing (SEO & Performance)
+- dotenv-webpack (managing environment variables)
+- Firebase as database
+- Vercel for deployment
+
+#### Contact:
+- [LinkedIn](https://www.linkedin.com/in/janickbunzel/)
+- [janick.bunzel@airtography.de](mailto:janick.bunzel@airtography.de)
+
+#### License
+
+This project is licensed under the MIT License with additional terms for assets - see the [LICENSE](LICENSE) file for details.
